@@ -1,0 +1,26 @@
+{
+  "name": "eateries",
+  "version": "1.0.0",
+  "description": "Single page application for eateries at RIT campus",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Ritvik Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.8",
+    "angular-route": "^1.6.8",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jquery": "^3.3.1",
+    "mocha": "^5.0.0",
+    "mongodb": "^3.0.1",
+    "mongoose": "^5.0.1",
+    "nodemon": "^1.14.11"
+  }
+}
