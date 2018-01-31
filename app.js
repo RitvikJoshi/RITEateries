@@ -1,7 +1,7 @@
 
 //Setup Db connection
 
-//require('./api/data/dbconnection');
+require('./api/data/dbConnection');
 
 //Import packages
 var express= require("express");
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname,'public')));
 app.use('/node_modules',express.static(__dirname+'/node_modules'));
 
 //Use available routes
-app.use('/api',routes);
+app.use("",routes);
 
 
 

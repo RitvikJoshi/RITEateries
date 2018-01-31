@@ -5,13 +5,20 @@ var getPlacesToEat = require('../controller/placeToEatController');
 //var getReview = require('../controller/reviewController');
 
 
+
 router
-    .route('/placesToEat')
+    .route('/places')
     .get(getPlacesToEat.getAllPlaces);
 
 
 router
-    .route('/placesToEat/:placeId')
+    .route('/places/:placeId')
     .get(getPlacesToEat.getOnePlace);
+
+
+router
+    .route('/places/addPlace')
+    .post(getPlacesToEat.addPlace);
+
 
 module.exports = router;

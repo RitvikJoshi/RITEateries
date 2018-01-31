@@ -8,11 +8,15 @@ var mongoose = require('mongoose');
 
 var review= new mongoose.Schema({
     name : String,
-    comments : String
+    comments : String,
+    createdOn : {
+        type : Date,
+        "default" : Date.now
+    }
 });
 
 var days=new mongoose.Schema({
-    day : name,
+    day : String,
     openTime : Number,
     closeTime: Number
 });
@@ -29,7 +33,7 @@ var eateriesSchema = new mongoose.Schema({
     daysOpen : [days],
     location : {
         address : String,
-        cooridnates : {
+        coordinates : {
             type: [Number],
             index: '2dsphere'
         }
@@ -45,7 +49,7 @@ var eateriesSchema = new mongoose.Schema({
     speciality : [String],
     photos : [String],
     contact : {
-        managerName : String,
+        manager : String,
         email : String,
         phone : Number
     }
