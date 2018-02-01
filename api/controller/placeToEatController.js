@@ -68,7 +68,7 @@ module.exports.getOnePlace = function(req,res){
 
 var splitArray = function(dataString){
     var dataList =[];
-    if(dataString && len(dataString)>0) {
+    if(dataString && dataString.length>0) {
         dataList = dataString.split(';');
     }
     return dataList;
@@ -76,10 +76,18 @@ var splitArray = function(dataString){
 
 
 module.exports.addPlace = function(req,res){
+    console.log(req.body.name);
+    if(isNaN(req.body.stars)) {
+        res
+            .status(500)
+            .json({"Error": "Stars should be Integer"});
+        return;
+    }
 
     places
         .create({
             name : req.body.name,
+
             stars : parseInt(req.body.stars,10),
             location : {
                 address : req.body.address,
@@ -95,17 +103,18 @@ module.exports.addPlace = function(req,res){
             },
             payment : splitArray(req.body.payment),
             speciality : splitArray(req.body.speciality),
-            photos : splitArray(req.body.photos),
+            photos : splitArray(req.body.photos)
 
         },function(err, hotel ){
             console.log("Creating place");
             if(err){
+                console.log("Error occurred while inserting new record "+ err);
                 res
                     .status(500)
                     .json({"Error":"Error occurred while inserting new record"});
 
             }
-            if(hotel){
+            else if(hotel){
                 console.log("Place successfully created");
                 res
                     .status(201)
@@ -144,7 +153,14 @@ module.exports.updatePlace = function(req,res){
                         parseFloat(req.body.latitude)
                     ]
                 };
-                place.stars = req.body.stars;
+
+                if(isNaN(req.body.stars)) {
+                    res
+                        .status(500)
+                        .json({"Error": "Stars should be Integer"});
+                    return;
+                }
+                place.stars = parseInt(req.body.stars,10);
                 place.payment = splitArray(req.body.payment);
                 place.speciality = splitArray(req.body.speciality);
                 place.photos = splitArray(req.body.photos);
@@ -190,7 +206,7 @@ module.exports.deleteOne=function(req,res){
                    .status(500)
                    .json({"Error":"Error occurred while deleting record"});
            }
-           if(place){
+           else if(place){
                console.log("Record successfully deleted");
                res
                    .status(204)

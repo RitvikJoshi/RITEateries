@@ -9,6 +9,12 @@ var mongoose = require('mongoose');
 var review= new mongoose.Schema({
     name : String,
     comments : String,
+    stars : {
+        type : Number,
+        min :0,
+        max :5,
+        default : 0
+    },
     createdOn : {
         type : Date,
         "default" : Date.now
@@ -17,8 +23,20 @@ var review= new mongoose.Schema({
 
 var days=new mongoose.Schema({
     day : String,
-    openTime : Number,
-    closeTime: Number
+
+    openTime : {
+        type : Number,
+        min : 0,
+        max : 24,
+        default : 0
+
+    },
+    closeTime: {
+        type : Number,
+        min : 0,
+        max : 24,
+        default : 0
+    }
 });
 
 

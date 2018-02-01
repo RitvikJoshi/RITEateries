@@ -9,18 +9,22 @@ module.exports.getAllReviews= function(req,res){
   places
       .findById(placeId)
       .select("reviews")
-      .exec(function(err,data){
+      .exec(function(err,place){
          if(err){
              console.log("Error occurred while fetching reviews for place "+placeId);
              res
                  .status(500)
                  .json({"Error":"Error occurred while fetching data"});
          }
-         if(data){
+         if(place.reviews){
              console.log("Reviews Fetched successfully");
              res
                  .status(200)
-                 .json(data);
+                 .json(place.reviews);
+         }else{
+             res
+                 .status(200)
+                 .json([]);
          }
       });
 
@@ -31,7 +35,8 @@ var addPost = function(place,req,res){
 
     place.reviews.push({
         "name" : req.body.name,
-        "comments" : req.body.comments
+        "comments" : req.body.comments,
+        "stars" : req.body.stars
     });
 
     place.save(function(err,updated){
