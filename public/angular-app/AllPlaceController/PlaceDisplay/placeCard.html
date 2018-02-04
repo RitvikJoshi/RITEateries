@@ -1,0 +1,22 @@
+<div ng-repeat="place in vm.places">
+    <div class="center-div corners">
+        <div class="upper-half" style="clear:both">
+            <div class="left">
+                <a ng-href="#!/places/{{place._id}}">
+                <img src="/image/pastriesARTESANO.jpg" width=100px height=100px>
+                </a>
+            </div>
+            <div class="right">
+                <div class="backcolor">
+                    <p class="placename"><a ng-href="#!/places/{{place._id}}">{{place.name}}</a> - <span ng-repeat="star in getstars(place.stars) track by $index" class="glyphicon glyphicon-star">{{star}}</span></p>
+                    <p class="location">{{place.location.address}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="lower-half">
+            <p>{{place.description}}</p>
+        </div>
+    </div>
+
+    <br>
+</div>

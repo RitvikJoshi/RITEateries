@@ -87,7 +87,7 @@ module.exports.addPlace = function(req,res){
     places
         .create({
             name : req.body.name,
-
+            description : req.body.description,
             stars : parseInt(req.body.stars,10),
             location : {
                 address : req.body.address,
@@ -169,7 +169,7 @@ module.exports.updatePlace = function(req,res){
                 place.phone = req.body.phone;
 
 
-                places.save(function(err,updated){
+                place.save(function(err,updated){
                    if(err){
                        console.log("Error occurred while updating place "+ placeId);
                        res

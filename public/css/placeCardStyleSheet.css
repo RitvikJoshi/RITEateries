@@ -1,0 +1,94 @@
+.center
+{
+    margin: 0 auto;
+    text-align:center;
+}
+
+.center-div{
+    margin : 0 auto;
+    width : 600px;
+    border : 2px groove;
+    background-color : white;
+}
+.upper-half{
+
+    margin :10px;
+    width : 580px;
+    height :100px;
+    background-color: white;
+    border-bottom :1px solid lightgray;
+}
+.center-half{
+    margin :10px;
+    width : 580px;
+    height :100px;
+
+}
+.lower-half{
+    margin :10px;
+    width : 580px;
+    height :100px;
+
+}
+.content {
+    overflow:auto;
+    width: 80px;
+    border: 1px solid black;
+    background: gray;
+    margin: 2px auto;
+}
+
+.left  {
+    width: 20%;
+    float:left;
+    padding: 0px;
+    background: white;
+}
+.right{
+    width: 79%;
+    float:right;
+    padding: 0px;
+    background: white;
+}
+
+/*.left {*/
+    /*float:left;*/
+/*}*/
+/*.right {   float:right;*/
+/*}*/
+
+.backcolor{
+    background-color:white;
+}
+
+.placename{
+    font-family : sans-serif;
+    font-weight : bold;
+    font-size : 120%;
+    color : orange;
+}
+
+.location{
+    font-family : sans-serif;
+    font-weight : bold;
+    font-size : 100%;
+    color : gray;
+}
+
+.background{
+
+    background-color:black;
+    width :100%;
+
+}
+
+.corners {
+    border-radius: 25px;
+}
+
+.center-div-update{
+    margin : 0 auto;
+    width : 1000px;
+    border : 2px groove;
+    background-color : white;
+}

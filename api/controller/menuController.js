@@ -22,7 +22,7 @@ var addMenu = function(place,req,res){
        items : splitArray(req.body.items)
     });
 
-    places.save(function(err,updated){
+    place.save(function(err,updated){
        if(err){
            console.log("Error occurred while posting new menu item");
            res
@@ -120,7 +120,7 @@ module.exports.updateMenu = function(req,res){
                 menuItem.category = req.body.category;
                 menuItem.items = splitArray(req.body.items);
 
-                places.save(function(err,updated){
+                place.save(function(err,updated){
                    if(err){
                        console.log("Error occurred while updating menu "+menuId);
                        res
@@ -162,7 +162,7 @@ module.exports.deleteMenu = function(req,res){
             if(place){
                 place.menu=[];
 
-                places.save(function(err,updated){
+                place.save(function(err,updated){
                     if(err){
                         console.log("Error occurred while deleting menu "+menuId);
                         res

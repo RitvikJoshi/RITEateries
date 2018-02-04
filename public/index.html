@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Eateries</title>
+    <link rel="stylesheet" href="css/placeCardStyleSheet.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body ng-app="Eateries" style="background-color:#ffe0b3">
+<div class="background">
+    <h1 style="color:Orange; font-size:400%" class="center">Eateries@RIT</h1>
 
-<h1>Eateries@RIT</h1>
-<!--<script src="node_modules/angular/angular.js"></script>-->
+</div>
+    <!--<script src="node_modules/angular/angular.js"></script>-->
+    <div ng-view></div>
 
-
+<script src="/node_modules/angular/angular.min.js"></script>
+<script src="/node_modules/angular-route/angular-route.js"></script>
+<script src="angular-app/angularRouter.js"></script>
+<script src="angular-app/AllPlaceController/DataFactory/dataFactory.js"></script>
+<script src="angular-app/AllPlaceController/PlaceDisplay/allPlaceController.js"></script>
+<script src="angular-app/AllPlaceController/PlaceDisplay/placeCard.js"></script>
 
 </body>
 </html>

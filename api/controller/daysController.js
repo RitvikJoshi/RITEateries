@@ -83,3 +83,56 @@ module.exports.updateDays = function(req,res){
 
 };
 
+
+var addDays = function(place,req,res){
+
+    place.daysOpen.push({
+        day : req.body.day,
+        openTime : req.body.openTime,
+        closeTime : req.body.closeTime
+    });
+
+    place.save(function(err,updated){
+        if(err){
+            console.log("Error occurred while posting new day ");
+            res
+                .status(500)
+                .json({"Error":"Error occurred while posting new day"});
+        }
+        if(updated){
+            console.log("day updated");
+            res
+                .status(200)
+                .json(updated);
+        }
+    });
+
+
+};
+
+
+
+module.exports.pushDays = function(req,res){
+
+    var placeId = req.params.placeId;
+
+    places
+        .findById(placeId)
+        .select("daysOpen")
+        .exec(function(err,place){
+
+            if(err){
+                console.log("Error occurred while fetching days for place "+placeId);
+                res
+                    .status(500)
+                    .json({"Error":"Error occurred while fetching data"});
+            }
+            if(place){
+                addDays(place,req,res);
+            }
+
+        });
+
+};
+
+
